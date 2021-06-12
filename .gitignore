@@ -1,5 +1,6 @@
 /venv
 /.idea
+botDB.sqbpro
 /__pycache__
 app/__pycache__
 app/handlers/__pycache__

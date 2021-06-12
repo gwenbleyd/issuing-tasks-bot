@@ -1,11 +1,11 @@
-from app.config import *
+from db.check import *
+from db.add import *
 
 
 async def start(message: types.Message, state: FSMContext):
     await state.finish()
-    if message.chat.id not in users:
-        users.append(message.chat.id)
-        logger.info("Пользователь {0} (id: {1}) подписался".format(message.from_user.username, message.from_user.id))
+    if not is_user(message.chat.id):
+        add_user(message.from_user.id, message.from_user.username)
     await message.answer("Тебя приветствует бот для заданий канала...")
 
 

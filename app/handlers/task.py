@@ -1,4 +1,4 @@
-from app.config import *
+from db.check import *
 
 
 class TaskState(StatesGroup):
