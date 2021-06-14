@@ -7,7 +7,7 @@ from app.handlers.control import register_handlers_control
 if __name__ == '__main__':
     logging.basicConfig(
         level=logging.INFO,
-        format="%(asctime)s - %(levelname)s - %(name)s - %(message)s",
+        format=u"%(asctime)s - %(levelname)s - %(filename)s - %(name)s - %(lineno)d - %(message)s",
     )
     logger.info("Starting bot")
 

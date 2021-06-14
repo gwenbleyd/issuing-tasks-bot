@@ -18,7 +18,7 @@ def get_keyboard():
 
 
 async def add_task(message: types.Message):
-    if is_admin(message):
+    if await is_admin(message):
         await message.answer("Введи текст задания!")
         await TaskState.needImg.set()
 

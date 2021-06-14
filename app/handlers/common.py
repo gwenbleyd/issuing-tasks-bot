@@ -4,8 +4,8 @@ from db.add import *
 
 async def start(message: types.Message, state: FSMContext):
     await state.finish()
-    if not is_user(message.chat.id):
-        add_user(message.from_user.id, message.from_user.username)
+    if not await is_user(message.chat.id):
+        await add_user(message.from_user.id, message.from_user.username)
     await message.answer("Тебя приветствует бот для заданий канала...")
 
 

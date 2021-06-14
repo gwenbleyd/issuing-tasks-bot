@@ -1,7 +1,7 @@
 from app.config import *
 
 
-def add_user(user_id, nickname):
+async def add_user(user_id, nickname):
     try:
         sqlite_connection = sqlite3.connect('botDB.db')
         cursor = sqlite_connection.cursor()
@@ -17,7 +17,7 @@ def add_user(user_id, nickname):
             logger.info("Соединение с SQLite закрыто")
 
 
-def add_admin(user_id, nickname):
+async def add_admin(user_id, nickname):
     try:
         sqlite_connection = sqlite3.connect('botDB.db')
         cursor = sqlite_connection.cursor()
@@ -34,11 +34,11 @@ def add_admin(user_id, nickname):
     pass
 
 
-def add_msg(number):
+async def add_msg(number):
     try:
         sqlite_connection = sqlite3.connect('botDB.db')
         cursor = sqlite_connection.cursor()
-        cursor.execute("insert into message (number) values (?)", number)
+        cursor.execute("insert into message values (?, ?)", (None, number))
         sqlite_connection.commit()
         logger.info("Было добавлено задание №{}".format(number))
         cursor.close()
